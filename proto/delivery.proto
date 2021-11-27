@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "github.com/detohm/grpc-study/proto";
+
+package delivery;
+
+message Product {
+    int64 productId = 1; 
+    int64 userId = 2;
+}
+
+message Delivery {
+    int64 deliveryId = 1;
+    string trackingId = 2;
+}
+
+service DeliverySVC {
+    rpc Create(Product) returns (Delivery) {}
+}
